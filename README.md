@@ -1,10 +1,10 @@
 
 ###Caso 4
 
-| Nombre                | Cedula     |
+| Nombre                | Carnet     |
 |-----------------------|------------|
 | Diego Alonso Carrillo | 2020182911 |
-| Randy Fonseca         |            |
+| Randy Fonseca         | 2019004000 |
 
 ##Explicacion del algoritmo:
 
