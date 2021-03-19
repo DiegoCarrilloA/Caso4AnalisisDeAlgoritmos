@@ -1,8 +1,9 @@
 
 ###Caso 4
 
-| Diego Alonso Carrillo | 2020182911 |
+| Nombre                | Cedula     |
 |-----------------------|------------|
+| Diego Alonso Carrillo | 2020182911 |
 | Randy Fonseca         |            |
 
 ##Explicacion del algoritmo:
