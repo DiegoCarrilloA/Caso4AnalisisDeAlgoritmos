@@ -8,12 +8,14 @@
 
 ## Explicacion del algoritmo:
 
-  La ciencia del algoritmo consiste en marcar 16 rectas estrategicas que unidas hacen la forma deseada, al tener listas estas rectas y al unirlas se forma la figura que se necesita,
-  estas rectas ya están adaptadas al largo y al ancho que se obtienen como parametro en la función. luego solo es question de mover las mismas rectas en el eje x y en el eje y para obtener las 128 rectas restantes.
+  La ciencia del algoritmo consiste en marcar 4 rectas estrategicas para obtener una base del diseño, luego se replican a lo largo y ancho del espacio hasta completar el patrón.
   
   Para probar los puntos opcionales se debe descargar el proyecto de Java "OpcionalCaso4"
  Dentro del proyecto, en el archivo GFG!.java, se debe copiar la salida del codigo c++ en el espacio indicado en el proyecto: 
   
+  
+### f(n) = 146
+### O(n) = O(C)
   
 ![image](https://user-images.githubusercontent.com/49202815/111855315-e2dfb000-88e9-11eb-947b-cbc66791c5af.png)
 
