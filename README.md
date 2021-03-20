@@ -9,7 +9,7 @@
 ## Explicacion del algoritmo:
 
   La ciencia del algoritmo consiste en marcar 4 rectas estrategicas para obtener una base del diseño, luego se replican a lo largo y ancho del espacio hasta completar el patrón.
-  
+### El algoritmo tiene tamaño constante ya que sin importar las dimensiones siempre realizará el mismo proceso  
 ### f(n) = 146
 ### O(n) = O(C)  
   
