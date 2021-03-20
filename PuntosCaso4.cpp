@@ -2,6 +2,7 @@
 using namespace std;
 
 void makePattern(int pWidth, int pHeight){
+	
 	/*			Caja A (Tamaño completo)
 				_____________________________________
 				|	  Tamaño total = pWidth;		|
@@ -24,8 +25,8 @@ void makePattern(int pWidth, int pHeight){
 	*/
 
 	int tirdWidth, tirdHeight;
-	tirdWidth = pWidth/3;
-	tirdHeight = pHeight/3;
+	tirdWidth = pWidth/3;  // 2 tiempos
+	tirdHeight = pHeight/3; // 2 tiempos
 
 
 	/* 	
@@ -52,8 +53,8 @@ void makePattern(int pWidth, int pHeight){
 
 	*/
 	int halfTirdWi, halfTirdHe;
-	halfTirdWi = tirdWidth/2;
-	halfTirdHe = tirdHeight/2;
+	halfTirdWi = tirdWidth/2; // 2 tiempos
+	halfTirdHe = tirdHeight/2; // 2 tiempos
 
 /*
 
@@ -92,30 +93,30 @@ Recta 3 = F-D;
 Recta 4 = D-C;
 
 */
-	int matriz[16] = {};
+	int matriz[16];
 	//Recta 1
-	matriz[0]= 0;
-	matriz[1]= (int) (halfTirdWi/6);
-	matriz[2]= halfTirdWi;
-	matriz[3]=(int) (halfTirdHe/2);
+	matriz[0]= 0; // 2 tiempos 
+	matriz[1]= (int) (halfTirdWi/6); //3 tiempos
+	matriz[2]= halfTirdWi; // 2 tiempos
+	matriz[3]=(int) (halfTirdHe/2); //3 tiempos
 
 	//Recta 2
-	matriz[4] = (int)(halfTirdHe/6);
-	matriz[5] = 0;
-	matriz[6] = (int)(halfTirdWi/2);
-	matriz[7] = halfTirdHe;
+	matriz[4] = (int)(halfTirdHe/6); // 3 tiempos
+	matriz[5] = 0; // 2 tiempos
+	matriz[6] = (int)(halfTirdWi/2); // 3 tiempos
+	matriz[7] = halfTirdHe; // 2 tiempos
 
 	//Recta 3
-	matriz[8] = 0;
-	matriz[9] = halfTirdHe ;
-	matriz[10] = (int)((halfTirdWi/3)*2);
-	matriz[11] = (int)((halfTirdHe/3)*2);
-
+	matriz[8] = 0; // 2 tiempos
+	matriz[9] = halfTirdHe; // 2 tiempos
+	matriz[10] = (int)((halfTirdWi/3)*2); // 4 tiempos
+	matriz[11] = (int)((halfTirdHe/3)*2); // 4 tiempos
+ 
 	//Recta 4
-	matriz[12] = (int)((halfTirdWi/3)*2);
-	matriz[13] = (int)((halfTirdHe/3)*2);
-	matriz[14] = halfTirdWi;
-	matriz[15] = 0;
+	matriz[12] = (int)((halfTirdWi/3)*2); // 4 tiempos
+	matriz[13] = (int)((halfTirdHe/3)*2); // 4 tiempos 
+	matriz[14] = halfTirdWi; // 2 tiempos
+	matriz[15] = 0; // 2 tiempos
 
 
 /*
@@ -128,26 +129,28 @@ Con base a estas 4 rectas se puede producir todo el patrón
 
 	*/
 
-	int pointMatrix[6][6][16] = {};
+	int pointMatrix[6][6][16];
 
 	int increaseX, increaseY, pointX, pointY, pointX2, pointY2;
-	increaseX = 0;
-	increaseY = 0;
+	increaseX = 0; // 1 tiempo
+	increaseY = 0; // 1 tiempo
 
 	/*
 	Al incluir una caja C en el diseño existen 4 posibilidades
 	- Que sea la misma posicion
-	- Que sea una reflexion a la izquierda
+	- Que sea una reflexion a la derecha
 	- Que sea una reflexión hacia abajo
-	- Que sea una una doble reflexion hacia la izquierda y hacia abajo
+	- Que sea una una doble reflexion hacia la derecha y hacia abajo
 
 	*/
 
-	for(int i=0; i<6; i++){
-		for(int j=0; j<6; j++){
-			for(int k=0; k<16; k+=4){
 
-				if(i%2==0 && j%2==0){
+	//1 tiempo afuera +
+	for(int i=0; i<6; i++){ // [3 tiempos
+		for(int j=0; j<6; j++){ // 4 tiempos
+			for(int k=0; k<16; k+=4){ // 4 tiempos
+
+				if(i%2==0 && j%2==0){ // 5 tiempos
 					//Que sea la misma posicion
 
 					pointX = matriz[k];
@@ -157,9 +160,9 @@ Con base a estas 4 rectas se puede producir todo el patrón
 				}
 
 				else if(i%2==0 && j%2 != 0){
-					//Que sea una reflexion a la izquierda
+					//Que sea una reflexion a la derecha
 
-					pointX = halfTirdWi - matriz[k];
+					pointX = halfTirdWi - matriz[k]; 
 					pointY = matriz[k+1];
 					pointX2 = halfTirdWi - matriz[k+2];
 					pointY2 = matriz[k+3];
@@ -167,9 +170,9 @@ Con base a estas 4 rectas se puede producir todo el patrón
 				}
 
 				else if(i%2!=0 && j%2 != 0){
-					//Que sea una una doble reflexion hacia la izquierda y hacia abajo
+					//Que sea una una doble reflexion hacia la derecha y hacia abajo
 
-					pointX = halfTirdWi - matriz[k];
+					pointX = halfTirdWi - matriz[k]; // 15 tiempos
 					pointY = halfTirdHe - matriz[k+1];
 					pointX2 = halfTirdWi - matriz[k+2];
 					pointY2 = halfTirdHe - matriz[k+3];
@@ -184,34 +187,56 @@ Con base a estas 4 rectas se puede producir todo el patrón
 					pointY2 = halfTirdHe - matriz[k+3];
 				}
 
-				pointMatrix[i][j][k] = pointX + increaseX;
-				pointMatrix[i][j][k+1] = pointY + increaseY;
-				pointMatrix[i][j][k+2] = pointX2 + increaseX;
-				pointMatrix[i][j][k+3] = pointY2 + increaseY;
+				pointMatrix[i][j][k] = pointX + increaseX; // 5 tiempos
+				pointMatrix[i][j][k+1] = pointY + increaseY; // 6 tiempos 
+				pointMatrix[i][j][k+2] = pointX2 + increaseX; // 6 tiempos
+				pointMatrix[i][j][k+3] = pointY2 + increaseY; // 6 tiempos
 				
 			}
-			increaseX += halfTirdWi;
+			increaseX += halfTirdWi; // 2 tiempos
 		}
-		increaseY += halfTirdHe;
-		increaseX = 0;
+		increaseY += halfTirdHe; // 2 tiempos
+		increaseX = 0; // 1 tiempos]
 	}
 
 
 
-	for(int i=0; i<6; i++){
-		for(int j=0; j<6; j++){
-			for(int k=0; k<16; k+=4){
-				printf("g.drawLine(%d,%d,%d,%d);\n",pointMatrix[i][j][k],pointMatrix[i][j][k+1],pointMatrix[i][j][k+2],pointMatrix[i][j][k+3]);
+	//1 tiempo afuera
+	for(int i=0; i<6; i++){ //3 tiempos
+		for(int j=0; j<6; j++){ //4 tiempos
+			for(int k=0; k<16; k+=4){ //4 tiempos
+				printf("g.drawLine(%d,%d,%d,%d);\n",pointMatrix[i][j][k],pointMatrix[i][j][k+1],pointMatrix[i][j][k+2],pointMatrix[i][j][k+3]);//20 tiempos
 			}
 		}
 	}
+
+
+	/* TIEMPO TOTAL 146
+
+	*/
 
 }
 
 
 int main(){
+	//El algoritmo para generar el patrón requiere las medidas de largo y ancho en pixeles del lugar donde se quiera dibujar
 
-	makePattern(1000, 720);
+	//Se quiere dibujar en un espacio de 200x200
+	makePattern(200, 200);
+
+	cout<<"\n\n------------------------------------------------------------------ \n\n";
+
+	//Se quiere dibujar en un espacio de 250x500
+	makePattern(250, 500);
+
+
+	//Se quiere dibujar en un espacio de 1920x1080
+	cout<<"\n\n------------------------------------------------------------------ \n\n";
+	makePattern(1920, 1080);
+
+	//Se quiere dibujar en un espacio de 500x500
+	cout<<"\n\n------------------------------------------------------------------ \n\n";
+	makePattern(500, 500);
 	return 0;
 }
 
