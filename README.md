@@ -10,12 +10,16 @@
 
   La ciencia del algoritmo consiste en marcar 4 rectas estrategicas para obtener una base del diseño, luego se replican a lo largo y ancho del espacio hasta completar el patrón.
   
-  Para probar los puntos opcionales se debe descargar el proyecto de Java "OpcionalCaso4"
- Dentro del proyecto, en el archivo GFG!.java, se debe copiar la salida del codigo c++ en el espacio indicado en el proyecto: 
-  
-  
 ### f(n) = 146
-### O(n) = O(C)
+### O(n) = O(C)  
+  
+## Parte opcional:  
+  
+  Para probar los puntos opcionales se debe descargar el proyecto de Java "OpcionalCaso4"
+ Dentro del proyecto, en el archivo GFG1.java, se debe copiar la salida del codigo c++ en el espacio indicado en el proyecto: 
+  
+  
+
   
 ![image](https://user-images.githubusercontent.com/49202815/111855315-e2dfb000-88e9-11eb-947b-cbc66791c5af.png)
 
